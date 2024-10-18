@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-roboto overflow-x-hidden;
+  }
+  .container {
+    @apply max-w-[1600px] w-full px-4 mx-auto;
+  }
+  h1 {
+    @apply text-[70px];
+  }
+  h2 {
+    @apply text-[33px];
+  }
+  h3 {
+    @apply text-[24px];
+  }
+  h4 {
+    @apply text-[16px];
+  }
+  h5 {
+    @apply text-[12px];
+  }
+  h6 {
+    @apply text-[10px];
+  }
+  p {
+    @apply text-[16px];
+  }
+}
+
+@layer components {
+  /* TOGGLE */
+  .header__nav.open {
+    @apply right-0 z-50 overflow-y-hidden;
+  }
+  .transparent {
+    @apply hidden;
+  }
+  .transparent.open {
+    @apply block fixed top-[4.5rem] left-0 h-screen w-full
+        backdrop-brightness-50 duration-700 overflow-y-hidden;
+  }
+  .toggle__menu {
+    @apply flex flex-col gap-0.5 z-50 md:hidden lg:hidden;
+  }
+  .toggle__menu span {
+    @apply content-[*] bg-gray-500 w-8 h-1 rounded-lg 
+        duration-700 ease-in-out;
+  }
+  .toggle__menu span:last-child {
+    @apply content-[*] bg-gray-500 w-8 h-1 rounded-lg 
+        duration-700 ease-in-out;
+  }
+  .toggle__menu.open span:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  .toggle__menu.open span:first-child {
+    @apply rotate-45 translate-x-[1rem] translate-y-[0.1rem];
+  }
+  .toggle__menu.open span:last-child {
+    @apply -rotate-45 translate-x-[1rem] translate-y-[-0.8rem];
+  }
+
+  .header__nav li a {
+    @apply text-xl lg:hover:border-b-4 lg:border-b-primary  lg:hover:text-primary;
+  }
+
+  /* FAVORITES TABS */
+  .favorites__tab {
+    @apply flex flex-row justify-between;
+  }
+  .favorites__tab span {
+    @apply text-yellow-600;
+  }
+
+  .favorites__tab li {
+    @apply p-5 text-lg font-bold cursor-pointer;
+  }
+  .favorites__tab li.active {
+    @apply border-b-4 border-b-primary;
+  }
+  .favorites__details {
+    @apply hidden py-10 p-4 bg-accent;
+  }
+  .favorites__details.active {
+    @apply block;
+  }
+  .favorites__text {
+    @apply text-center;
+  }
+  .favorites__text h3 {
+    @apply p-5 font-semibold;
+  }
+
+  /* QUESTION */
+
+  .question__top ul p {
+    @apply text-sm;
+  }
+  .question__bottom ul p {
+    @apply text-sm;
+  }
+
+  /* FOOTER */
+
+  .footer__content {
+    @apply border-t-4;
+  }
+  .footer__items {
+    @apply mb-5 max-w-[35rem] mx-auto;
+  }
+  .footer__items h4,
+  .footer__items i {
+    @apply bg-transparent px-3 py-2
+  transition-all flex justify-between items-center
+  cursor-pointer;
+  }
+  .footer__items i.open {
+    @apply rotate-[900deg] transition-all;
+  }
+  .footer__items ul {
+    @apply h-auto max-h-0 overflow-hidden  text-gray-500;
+  }
+  .footer__items ul.open {
+    @apply max-h-[50rem] transition-all duration-700 p-2 text-gray-500;
+  }
+  .footer__icons i {
+    @apply bg-gray-900 p-1 py-1 text-lg rounded-full text-white w-[2.5rem] text-center;
+  }
+
+  /* BUTTON */
+  .btn {
+    @apply py-2 px-4 bg-transparent border-transparent rounded-xl shadow-[0_8px_24px_-15px_rgba(149,157,165,0.2)];
+  }
+  .btn.bg-primaryy {
+    @apply bg-black  text-white
+        hover:bg-gray-700 hover:text-white hover:border-black rounded-full;
+  }
+  .btn.bg-outline {
+    @apply bg-transparent border border-black text-black
+    hover:bg-gray-500 rounded-full;
+  }
+  .btn.bg-whiteline {
+    @apply bg-transparent border border-white rounded-full text-white
+    hover:bg-green-950 rounded-full;
+  }
+  .btn.bg-green {
+    @apply bg-secondary rounded-full text-white hover:bg-green-800;
+  }
+  .btn.bg-join {
+    @apply text-secondary border border-b-secondary hover:border-b-0 py-0 rounded-none px-0;
+  }
+  .btn.bg-line {
+    @apply text-black border border-b-black hover:border-b-0 py-0 rounded-none px-0;
+  }
+}
